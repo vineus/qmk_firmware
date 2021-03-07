@@ -237,15 +237,21 @@ static void render_status(void) {
 
 bool is_mandelbrot_computed = false;
 #define MAX_ITERATION 10
-#define ZOOM 1
+#define DEFAULT_POSITION false
 void render_mandelbrot(void) {
     if (is_mandelbrot_computed) {
         return;
     }
+    double start_x = 0, start_y = 0, zoom = 1;
+    if (!DEFAULT_POSITION) {
+        start_x = (double) (100 - (rand() % 300)) / 100.0;
+        start_y = (double) (100 - (rand() % 300)) / 100.0;
+        zoom = (double) (rand() % 100) / 100.0 + 1;
+    }
     for (unsigned int y = 0; y < OLED_DISPLAY_HEIGHT; ++y) {
-        double p_i = (y - OLED_DISPLAY_HEIGHT / 2.0) / (0.5 * ZOOM * OLED_DISPLAY_HEIGHT);
+        double p_i = (y - OLED_DISPLAY_HEIGHT / 2.0) / (0.5 * zoom * OLED_DISPLAY_HEIGHT) + start_y;
         for (unsigned int x = 0; x < OLED_DISPLAY_WIDTH; ++x) {
-            double p_r = 1.5 * (x - OLED_DISPLAY_WIDTH / 2.0) / (0.5 * ZOOM * OLED_DISPLAY_WIDTH);
+            double p_r = 1.5 * (x - OLED_DISPLAY_WIDTH / 2.0) / (0.5 * zoom * OLED_DISPLAY_WIDTH) + start_x;
             double new_r = 0, new_i = 0, old_r = 0, old_i = 0;
             uint16_t i = 0;
             while ((new_r * new_r + new_i * new_i) < 4.0 && i < MAX_ITERATION) {
@@ -259,6 +265,11 @@ void render_mandelbrot(void) {
         }
     }
     is_mandelbrot_computed = true;
+}
+
+void keyboard_post_init_user(void) {
+    srand(TCNT0);
+    is_mandelbrot_computed = false;
 }
 
 void oled_task_user(void) {
