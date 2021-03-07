@@ -25,9 +25,9 @@
 //#define SPLIT_USB_DETECT
 //#define NO_USB_STARTUP_CHECK
 
-#define SPLIT_USB_TIMEOUT 1000
+//  #define SPLIT_USB_TIMEOUT 1000
 
-#define MASTER_LEFT
+// #define MASTER_LEFT
 
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
