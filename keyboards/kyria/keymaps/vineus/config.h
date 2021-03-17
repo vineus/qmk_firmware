@@ -42,5 +42,5 @@
     //#define RGBLIGHT_LED_MAP {9,8,6,7,5,3,2,4,1,0,10,12,13,11,14,16,17,15,18,19} // Orients Kyria LEDs for a left half-right half columnar progression.
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_SLEEP
-    #define RGBLIGHT_DEFAULT_HUE 21
+    #define RGBLIGHT_DEFAULT_HUE 169
 #endif
