@@ -43,4 +43,6 @@
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_SLEEP
     #define RGBLIGHT_DEFAULT_HUE 169
+
+    #define RGBLIGHT_LAYERS
 #endif

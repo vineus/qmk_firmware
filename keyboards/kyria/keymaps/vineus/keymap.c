@@ -136,7 +136,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     ),
 };
 
+#ifdef RGBLIGHT_LAYERS
+
+const rgblight_segment_t PROGMEM my_lower_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 5, HSV_GREEN} );
+const rgblight_segment_t PROGMEM my_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS( {15, 5, HSV_RED} );
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_lower_layer,
+    my_raise_layer
+);
+
+#endif
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _LOWER));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _RAISE));
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
@@ -272,6 +286,10 @@ void render_mandelbrot(void) {
 void keyboard_post_init_user(void) {
     srand(TCNT0);
     is_mandelbrot_computed = false;
+#ifdef RGBLIGHT_LAYERS
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+#endif
 }
 
 void oled_task_user(void) {
@@ -336,3 +354,6 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     }
 }
 #endif
+
+
+
