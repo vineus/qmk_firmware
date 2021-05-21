@@ -141,19 +141,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const rgblight_segment_t PROGMEM my_lower_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 5, HSV_GREEN} );
 const rgblight_segment_t PROGMEM my_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS( {15, 5, HSV_RED} );
+const rgblight_segment_t PROGMEM my_shift_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_YELLOW} );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_lower_layer,
-    my_raise_layer
+    my_raise_layer,
+    my_shift_layer
 );
 
-#endif
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(0, layer_state_cmp(state, _LOWER));
     rgblight_set_layer_state(1, layer_state_cmp(state, _RAISE));
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
+
+void matrix_scan_user(void) {
+    uint8_t mods = get_mods();
+    rgblight_set_layer_state(2, mods & MOD_MASK_SHIFT);
+}
+
+#endif
+
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
