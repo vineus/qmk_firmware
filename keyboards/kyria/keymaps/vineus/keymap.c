@@ -312,7 +312,7 @@ void oled_task_user(void) {
 #endif
 
 #ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     switch (get_highest_layer(layer_state)) {
         case _LOWER:
             if (index == 0) {
@@ -362,6 +362,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                 }
             }
     }
+    return true;
 }
 #endif
 
