@@ -45,4 +45,5 @@
     #define RGBLIGHT_DEFAULT_HUE 169
 
     #define RGBLIGHT_LAYERS
+    #define TAPPING_TOGGLE 2
 #endif

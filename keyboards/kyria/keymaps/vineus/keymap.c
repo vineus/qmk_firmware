@@ -45,15 +45,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | LCtrl  |   Z  |   X  |   C  |   V  |   B  |LShift|Expose|  |Notif |LShift|   N  |   M  | ,  < | . >  | /  ? | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |ScrSht| GUI  | Alt  |Space |Space |  | Space| Space|  `   | Del  | Emoji|
- *                        |      |      |      |Lower |      |  |      | Raise| Alt  |      |      |
+ *                        |ScrSht| GUI  | Alt  |Lower |Space |  | Space| Raise|  `   | Del  | Emoji|
+ *                        |      |      |      |      |      |  |      |      | Alt  |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
       KC_TAB, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
       MT(MOD_LSFT, KC_ESC) ,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_LSFT, KC_QUOT),
       KC_LCTL,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LSFT,   KC_EXPO,       KC_NOTIF, KC_CLPB, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-              KC_CPYP, KC_LGUI, KC_LOPT, LT(_LOWER, KC_SPC), KC_SPC, KC_SPC, LT(_RAISE, KC_SPC), MT(MOD_RALT, KC_GRV),  KC_DEL, KC_EMOJI
+                              KC_CPYP, KC_LGUI, KC_LOPT, MO(_LOWER), KC_SPC,      KC_SPC, TT(_RAISE), MT(MOD_RALT, KC_GRV),  KC_DEL, KC_EMOJI
     ),
 /*
  * Lower Layer: Symbols
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_CAPP, _______, _______, _______, KC_CLPB, _______, _______, _______, _______, _______
     ),
 /*
- * Raise Layer: Number keys, media, navigation
+    * Raise Layer: Number keys, media, navigation
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |        |   1  |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |        |
