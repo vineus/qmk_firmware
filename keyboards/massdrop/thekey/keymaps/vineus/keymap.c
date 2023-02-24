@@ -47,8 +47,9 @@ void dance_layers(qk_tap_dance_state_t *state, void *user_data)
         }
         break;
       case 2:
-        rgblight_sethsv_at(HSV_BLUE, _LED_SO);
-        layer_move(_NAV);
+        rgblight_sethsv_at(HSV_GREEN, _LED_LEFT);
+        rgblight_sethsv_at(HSV_GREEN, _LED_RIGHT);
+        layer_move(_DEBUG);
         break;
       case 3:
         rgblight_sethsv_at(HSV_PURPLE, _LED_C);
@@ -59,9 +60,8 @@ void dance_layers(qk_tap_dance_state_t *state, void *user_data)
         layer_move(_BOOKMARK);
         break;
       case 5:
-        rgblight_sethsv_at(HSV_GREEN, _LED_LEFT);
-        rgblight_sethsv_at(HSV_GREEN, _LED_RIGHT);
-        layer_move(_DEBUG);
+        rgblight_sethsv_at(HSV_BLUE, _LED_SO);
+        layer_move(_NAV);
         break;
   }
 }
