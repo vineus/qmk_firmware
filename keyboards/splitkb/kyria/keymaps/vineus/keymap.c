@@ -20,6 +20,7 @@
 #define KC_CPYW LGUI(LSFT(LCTL(KC_3)))  // Copy whole screen
 #define KC_CAPP LGUI(LSFT(KC_4))        // Capture portion of screen
 #define KC_CPYP LGUI(LSFT(LCTL(KC_4)))  // Copy portion of screen
+#define KC_RPYP LGUI(LSFT(KC_5))        // Record portion of screen
 
 #define KC_EMOJI LGUI(LCTL(KC_SPC))
 #define KC_CLPB LGUI(LSFT(KC_V))
@@ -93,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
       _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,                                     _______, KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
       _______, _______, _______, _______, KC_MUTE, KC_VOLD, KC_LEFT, KC_RGHT,   KC_UP, KC_DOWN, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-                                 KC_MUTE, _______, _______, _______, _______, KC_LOCK, _______, _______, _______, KC_MPLY
+                                 KC_RPYP, _______, _______, _______, _______, KC_LOCK, _______, _______, _______, KC_MPLY
     ),
 /*
  * Adjust Layer: Function keys, RGB
