@@ -25,7 +25,7 @@
 
 #define KC_EMOJI LGUI(LCTL(KC_SPC))     // Emojis
 #define KC_CLPB LGUI(LSFT(KC_V))        // Clipboard history
-#define KC_EXPO LCTL(KC_UP)             // Expo mode
+#define KC_HYPER LCTL(LALT(LGUI(LSFT(KC_NO))))         // Hyper key
 #define KC_NOTIF LALT(KC_QUOT)
 #define KC_LOCK LCTL(LGUI(KC_Q))        // Lock screen
 
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |Esc/Shft|   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LCtrl  |   Z  |   X  |   C  |   V  |   B  |LShift|Expose|  | 1Pwd |Clipbd|   N  |   M  | ,  < | . >  | /  ? | Enter  |
+ * | LCtrl  |   Z  |   X  |   C  |   V  |   B  |LShift| Hyper|  |Hyper |Clipbd|   N  |   M  | ,  < | . >  | /  ? | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |ScrSht| GUI  | Alt  |Lower |Space |  | Space| Raise|  `   | Del  | Emoji|
  *                        |      |      |      |      |      |  |      |      | Alt  |      |      |
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
       KC_TAB, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
       MT(MOD_LSFT, KC_ESC) ,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_LSFT, KC_QUOT),
-      KC_LCTL,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LSFT,   KC_EXPO,       KC_1PWD,  KC_CLPB, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+      KC_LCTL,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LSFT,   KC_HYPER,      KC_HYPER,  KC_CLPB, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
                               KC_CPYP, KC_LGUI, KC_LOPT, MO(_LOWER), KC_SPC,      KC_SPC, TT(_RAISE), MT(MOD_RALT, KC_GRV),  KC_DEL, KC_EMOJI
     ),
 /*
